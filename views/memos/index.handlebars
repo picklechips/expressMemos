@@ -1,0 +1,14 @@
+{{#each memos}}
+	<div class="card card-body mb-2">
+		<h4>{{title}}</h4>
+		<p>{{details}}</p>
+		<a href="/memos/edit/{{id}}" class="btn btn-dark btn-block mb-2">Edit</a>
+		<form method="post" action="/memos/{{id}}?_method=DELETE">
+			<input type="hidden" name="_method" value="DELETE">
+			<input type="submit" class="btn btn-danger btn-block" value="Delete">
+		</form>
+	</div>
+{{else}}
+	<p>You have no memos.</p>
+	<a href="/memos/add" class="btn btn-dark btn-lg">Create Memo</a>
+{{/each}}
